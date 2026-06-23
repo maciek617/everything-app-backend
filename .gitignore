@@ -1,0 +1,20 @@
+﻿# Visual Studio
+.vs/
+bin/
+obj/
+
+# User files
+*.user
+*.suo
+
+# Nuxt
+node_modules/
+.nuxt/
+.output/
+
+# Environment
+.env
+.env.*
+
+# Logs
+*.log
