@@ -29,7 +29,7 @@ public class BmiController : ControllerBase
 
         return Ok(new BmiResponse
         {
-            Bmi = Math.Round(bmiPlus, 2),
+            Bmi = Math.Round(bmiPlus, 3),
             Category = category,
             AgeFactor = request.YearFactor
         });
