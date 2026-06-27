@@ -3,6 +3,7 @@
     public class BmiResponse
     {
         public double Bmi { get; set; }
+        public double AgeFactor { get; set; }
         public string Category { get; set; } = "";
     }
 }
