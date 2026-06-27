@@ -10,12 +10,16 @@ public class BmiController : ControllerBase
     [HttpPost]
     public ActionResult<BmiResponse> Calculate(BmiRequest request)
     {
-        if (request.Height <= 0)
+        if (request.Height <= 0 && request.Weight <= 0)
             return BadRequest("Height must be greater than 0");
+
+
 
         var bmi = request.Weight / (request.Height * request.Height);
 
-        var category = bmi switch
+        var bmiPlus = bmi * request.YearFactor * request.SexFactor * request.RegionFactor;
+
+        var category = bmiPlus switch
         {
             < 18.5 => "Underweight",
             < 25 => "Normal",
@@ -25,8 +29,9 @@ public class BmiController : ControllerBase
 
         return Ok(new BmiResponse
         {
-            Bmi = Math.Round(bmi, 2),
-            Category = category
+            Bmi = Math.Round(bmiPlus, 2),
+            Category = category,
+            AgeFactor = request.YearFactor
         });
     }
 
