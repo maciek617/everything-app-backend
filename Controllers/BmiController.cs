@@ -31,7 +31,9 @@ public class BmiController : ControllerBase
         {
             Bmi = Math.Round(bmiPlus, 3),
             Category = category,
-            AgeFactor = request.YearFactor
+            AgeFactor = request.YearFactor,
+            SexFactor = request.SexFactor,
+            RegionFactor = request.RegionFactor
         });
     }
 
