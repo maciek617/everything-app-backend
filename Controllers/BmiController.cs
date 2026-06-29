@@ -1,7 +1,7 @@
 ﻿using EverythingApp.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace EverythingApp.Api.Controllers;
+namespace EverythingAppBackend.Controllers;
 
 [ApiController]
 [Route("api/tools/bmi")]
@@ -12,8 +12,6 @@ public class BmiController : ControllerBase
     {
         if (request.Height <= 0 || request.Weight <= 0)
             return BadRequest("Height must be greater than 0");
-
-
 
         var bmi = request.Weight / (request.Height * request.Height);
 
